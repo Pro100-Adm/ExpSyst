@@ -1,6 +1,5 @@
 from cgi import parse_qs
 html = '<form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input><button>Next</button></form>'
-#<p><input name="-5" type="radio" value="-5">-5<input name="-4" type="radio" value="-4">-4<input name="-3" type="radio" value="-3">-3<input name="-2" type="radio" value="-2">-2<input name="-1" type="radio" value="-1">-1<input name="0" type="radio" value="0">0<input name="1" type="radio" value="1">1<input name="2" type="radio" value="2">2<input name="3" type="radio" value="3">3<input name="4" type="radio" value="4">4<input name="5" type="radio" value="5">5</p></form>"""
 def wsgi_app(environ, start_response):
     status = '200 OK'
     d = parse_qs(environ['QUERY_STRING'])
