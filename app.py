@@ -8,9 +8,9 @@ def wsgi_app(environ, start_response):
     x.append(Answer1)
     response_headers = [('Content-type', 'text/html')]
     response_body = html
-    #if Answer1:
-        #html = '<form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><button>Next</button></form>'
-        #response_body = html
+    if Answer1:
+        html = '<form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><button>Next</button></form>'
+        response_body = html
     start_response(status, response_headers)
     yield response_body.encode()
     
