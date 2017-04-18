@@ -34,9 +34,9 @@ def wsgi_app(environ, start_response):
     response_body = html
     if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         for i in range(0,len(x)-1):
-            if float(x[i]):
+            try float(x[i]):
                 x[i]=float(x[i])
-            else:
+            except:
                 error=1
         if error==0:    
             y=calc(x)  
