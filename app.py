@@ -11,6 +11,7 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 Введите значения в интервале от 0 до 1 в формате '0.1'."""
 def wsgi_app(environ, start_response):
     x = []
+    good=0
     status = '200 OK'
     d = parse_qs(environ['QUERY_STRING'])
     Answer1 = d.get('Answer1',[None])[0]
@@ -31,9 +32,12 @@ def wsgi_app(environ, start_response):
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
-    if float(Answer1) and float(Answer2) and float(Answer3) and float(Answer4) and float(Answer5) and float(Answer6) and float(Answer7) and float(Answer8):
+    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         for i in range(0,len(x)-1):
-            x[i]=float(x[i])
+            if x[i].isfloat:
+                x[i]=float(x[i])
+                good+=1
+    if good==8:
         y=calc(x)  
         response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"
     else:
