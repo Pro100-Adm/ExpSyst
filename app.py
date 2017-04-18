@@ -71,7 +71,7 @@ def wsgi_app(environ, start_response):
             for s in range(0,len(ver_var_Tera)-1):
                 if i==list(ver_var_Tera.keys())[s]:
                     Tera = x[i]*list(ver_var_Tera.values())[s]
-        response_body = "Teso: "+str(Teso)+"<br>"+"WoW: "+str(WoW)+"<br>"+"Rev: "+str(Rev)+"<br>"+"BnS: "+str(BnS)+"<br>"+"EVE: "+str(EvE)+"<br>"+"Lin: "+str(Lin)+"<br>"+"Sky: "+str(Sky)+"<br>"+"All: "+str(All)+"<br>"+"Star: "+str(Star)+"<br>"+"Tera: "+str(Tera)+"<br>"        
+        response_body = "Teso: "+str(Teso)+"<br>"        
     start_response(status, response_headers)
     yield response_body.encode()
     
