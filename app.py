@@ -31,14 +31,18 @@ def wsgi_app(environ, start_response):
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
-    if float(Answer1) and float(Answer2) and float(Answer3) and float(Answer4) and float(Answer5) and float(Answer6) and float(Answer7) and float(Answer8):
+    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         for i in range(0,len(x)-1):
-            x[i]=float(x[i])
+            if float(x[i]):
+                x[i]=float(x[i])
+            else:
+                response_body="Пожалуйста, введите корректные данные."
         y=calc(x)
-        response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"
-    else:
-        response_body="Пожалуйста, введите корректные данные."
-    start_response(status, response_headers)
+        if float(x[0]) and float(x[1]) and float(x[2]) and float(x[3]) and float(x[4]) and float(x[5]) and float(x[6]) and float(x[7]):
+            response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"
+        else:
+            response_body="Пожалуйста, введите корректные данные."
+        start_response(status, response_headers)
     yield response_body.encode()
     
 if __name__ == '__main__':
