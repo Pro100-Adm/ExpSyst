@@ -1,4 +1,5 @@
 from cgi import parse_qs
+from exp_syst_calc import *
 html = """<form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input><br>
 <form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><br>
 <form method="get">Ты играл в Warcraft 3?<input name="Answer3"></input><br>
