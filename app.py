@@ -43,7 +43,7 @@ def wsgi_app(environ, start_response):
             start_response(status, response_headers)
             yield response_body.encode()
         except:
-            response_body="Пожалуйста, введите корректные значения."
+            response_body="Пожалуйста, введите корректные значения.<br>"
             start_response(status, response_headers)
             yield response_body.encode()
     
