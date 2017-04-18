@@ -19,7 +19,7 @@ def wsgi_app(environ, start_response):
     Answer6 = d.get('Answer6',[None])[0]
     Answer7 = d.get('Answer7',[None])[0]
     Answer8 = d.get('Answer8',[None])[0]
-    x.append(Answer1, Answer2, Answer3, Answer4, Answer5, Answer6, Answer7, Answer8)
+    x.append(Answer1)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
     start_response(status, response_headers)
