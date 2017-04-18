@@ -9,7 +9,7 @@ def wsgi_app(environ, start_response):
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
     if Answer1:
-        response_body = '<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer2"></input><button>Next</button></form>'
+        response_body = '<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer2"></input><button>Next</button></form>'+str(x)
         d = parse_qs(environ['QUERY_STRING'])
         Answer2 = d.get('Answer2',[None])[0]
         x.append(Answer2)
