@@ -28,7 +28,7 @@ def wsgi_app(environ, start_response):
     x.append(Answer7)
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
-    response_body = html
+    response_body = html+str(x)
     start_response(status, response_headers)
     yield response_body.encode()
     
