@@ -8,7 +8,7 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 <form method="get"><input name="Answer7">Нравится ли тебе "корейская стилистика?</input><br>
 <form method="get"><input name="Answer8">Готов ли ты в любой момент потерять всё и начать сначала?</input><br><button>OK</button></form>"""
 def wsgi_app(environ, start_response):
-    x = ['','','','','','','','']
+    x = []
     status = '200 OK'
     d = parse_qs(environ['QUERY_STRING'])
     Answer1 = d.get('Answer1',[None])[0]
