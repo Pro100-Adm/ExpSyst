@@ -6,7 +6,7 @@ def wsgi_app(environ, start_response):
     Answer1 = d.get('Answer1',[None])[0]
     x = []
     x.append(Answer1)
-    response_headers = [('Content-type', 'text/html', 'charset', 'utf-8')]
+    response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
     if Answer1:
         response_body = '<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer2"></input><button>Next</button></form>'
