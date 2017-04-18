@@ -7,7 +7,8 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 <form method="get">Готов ли ты к единовременному платежу за игру?<input name="Answer5"></input><br>
 <form method="get">Готов ли ты проводить большую часть времени в игре за скучными занятиями?<input name="Answer6"></input><br>
 <form method="get">Нравится ли тебе "корейская стилистика?<input name="Answer7"></input><br>
-<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>"""
+<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>
+Вводите числа от 0 до 1 в формате: '0.1'"""
 def wsgi_app(environ, start_response):
     x = []
     status = '200 OK'
@@ -30,11 +31,13 @@ def wsgi_app(environ, start_response):
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
-    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
+    if float(Answer1) and float(Answer2) and float(Answer3) and float(Answer4) and float(Answer5) and float(Answer6) and float(Answer7) and float(Answer8):
         for i in range(0,len(x)-1):
             x[i]=float(x[i])
         y=calc(x)
         response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"
+    else:
+        response_body="Пожалуйста, введите корректные данные."
     start_response(status, response_headers)
     yield response_body.encode()
     
