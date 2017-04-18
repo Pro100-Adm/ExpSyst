@@ -12,7 +12,9 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 def wsgi_app(environ, start_response): 
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
-    status = '200 OK'    
+    status = '200 OK'
+    start_response(status, response_headers)
+    yield response_body.encode()
     x = []
     good=0
     d = parse_qs(environ['QUERY_STRING'])
