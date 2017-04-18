@@ -39,4 +39,6 @@ def calc(x):
                 Star = x[i]*list(ver_var_Star.values())[r]
         for s in range(0,len(ver_var_Tera)-1):
             if i==list(ver_var_Tera.keys())[s]:
-                Tera = x[i]*list(ver_var_Tera.values())[s] 
+                Tera = x[i]*list(ver_var_Tera.values())[s]
+    y=[str(Teso),str(WoW),str(Rev),str(BnS),str(EvE),str(Lin),str(Sky),str(All),str(Star),str(Tera)]
+    return y
