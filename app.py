@@ -32,6 +32,8 @@ def wsgi_app(environ, start_response):
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
+    start_response(status, response_headers)
+    yield response_body.encode()
     if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         for i in range(0,len(x)-1):
             if x[i].isfloat:
