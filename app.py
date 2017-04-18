@@ -9,7 +9,11 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 <form method="get">Нравится ли тебе "корейская стилистика?<input name="Answer7"></input><br>
 <form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>
 Введите значения в интервале от 0 до 1 в формате '0.1'."""
-def wsgi_app(environ, start_response):
+def wsgi_app(environ, start_response): 
+    response_headers = [('Content-type', 'text/html; charset=UTF-8')]
+    response_body = html
+    start_response(status, response_headers)
+    yield response_body.encode()
     x = []
     good=0
     status = '200 OK'
@@ -30,10 +34,6 @@ def wsgi_app(environ, start_response):
     x.append(Answer6)
     x.append(Answer7)
     x.append(Answer8)
-    response_headers = [('Content-type', 'text/html; charset=UTF-8')]
-    response_body = html
-    start_response(status, response_headers)
-    yield response_body.encode()
     if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         for i in range(0,len(x)-1):
             if x[i].isfloat:
