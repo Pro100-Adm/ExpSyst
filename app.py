@@ -1,12 +1,12 @@
 from cgi import parse_qs
 html = """<form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input><br>
 <form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer3"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer4"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer5"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer6"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer7"></input><br>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer8"></input><br><button>OK</button></form>"""
+<form method="get">Ты играл в Warcraft 3?<input name="Answer3"></input><br>
+<form method="get">Готов ли ты к ежемесячным платежам за игру?<input name="Answer4"></input><br>
+<form method="get">Готов ли ты к единовременному платежу за игру?<input name="Answer5"></input><br>
+<form method="get"><input name="Answer6">Готов ли ты проводить большую часть времени в игре за скучными занятиями?</input><br>
+<form method="get"><input name="Answer7">Нравится ли тебе "корейская стилистика?</input><br>
+<form method="get"><input name="Answer8">Готов ли ты в любой момент потерять всё и начать сначала?</input><br><button>OK</button></form>"""
 def wsgi_app(environ, start_response):
     x = []
     status = '200 OK'
