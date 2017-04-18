@@ -1,12 +1,12 @@
 from cgi import parse_qs
-html = """<form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input>
-<form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer3"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer4"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer5"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer6"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer7"></input>
-<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer8"></input><button>OK</button></form>"""
+html = """<form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer3"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer4"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer5"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer6"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer7"></input><br>
+<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer8"></input><br><button>OK</button></form>"""
 def wsgi_app(environ, start_response):
     x = []
     status = '200 OK'
@@ -20,6 +20,13 @@ def wsgi_app(environ, start_response):
     Answer7 = d.get('Answer7',[None])[0]
     Answer8 = d.get('Answer8',[None])[0]
     x.append(Answer1)
+    x.append(Answer2)
+    x.append(Answer3)
+    x.append(Answer4)
+    x.append(Answer5)
+    x.append(Answer6)
+    x.append(Answer7)
+    x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
     start_response(status, response_headers)
