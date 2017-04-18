@@ -32,7 +32,7 @@ def wsgi_app(environ, start_response):
     response_body = html
     if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
         x=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8]
-        response_body=calc(x)
+        response_body=str(calc(x))
     start_response(status, response_headers)
     yield response_body.encode()
     
