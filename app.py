@@ -7,8 +7,7 @@ html = """<form method="get">Ты знаешь что такое mmorpg?<input n
 <form method="get">Готов ли ты к единовременному платежу за игру?<input name="Answer5"></input><br>
 <form method="get">Готов ли ты проводить большую часть времени в игре за скучными занятиями?<input name="Answer6"></input><br>
 <form method="get">Нравится ли тебе "корейская стилистика?<input name="Answer7"></input><br>
-<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>
-Вводите числа от 0 до 1 в формате: '0.1'"""
+<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>"""
 def wsgi_app(environ, start_response):
     x = []
     status = '200 OK'
