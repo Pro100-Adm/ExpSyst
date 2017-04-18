@@ -10,6 +10,9 @@ def wsgi_app(environ, start_response):
     response_body = html
     if Answer1:
         response_body = '<form method="get">Ты играл в The Elder Scrolls 5 Skyrim?<input name="Answer2"></input><button>Next</button></form>'
+        d = parse_qs(environ['QUERY_STRING'])
+        Answer2 = d.get('Answer2',[None])[0]
+        x.append(Answer2)
     start_response(status, response_headers)
     yield response_body.encode()
     
