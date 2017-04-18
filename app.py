@@ -31,7 +31,7 @@ def wsgi_app(environ, start_response):
     x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
-    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
+    if float(Answer1) and float(Answer2) and float(Answer3) and float(Answer4) and float(Answer5) and float(Answer6) and float(Answer7) and float(Answer8):
         for i in range(0,len(x)-1):
             x[i]=float(x[i])
         y=calc(x)  
