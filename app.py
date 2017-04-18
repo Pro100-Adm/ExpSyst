@@ -20,17 +20,19 @@ def wsgi_app(environ, start_response):
     Answer6 = d.get('Answer6',[None])[0]
     Answer7 = d.get('Answer7',[None])[0]
     Answer8 = d.get('Answer8',[None])[0]
-    x.append(int(Answer1))
-    x.append(int(Answer2))
-    x.append(int(Answer3))
-    x.append(int(Answer4))
-    x.append(int(Answer5))
-    x.append(int(Answer6))
-    x.append(int(Answer7))
-    x.append(int(Answer8))
+    x.append(Answer1)
+    x.append(Answer2)
+    x.append(Answer3)
+    x.append(Answer4)
+    x.append(Answer5)
+    x.append(Answer6)
+    x.append(Answer7)
+    x.append(Answer8)
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
     if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
+        for i in range(0,len(x)-1):
+            x[i]=int(x[i])
         response_body=str(calc(x))
     start_response(status, response_headers)
     yield response_body.encode()
