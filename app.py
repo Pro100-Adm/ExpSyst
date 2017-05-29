@@ -45,8 +45,11 @@ def wsgi_app(environ, start_response):
             response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"
             if termin:
                 response_body="The Elder Scrolls Online: "+str(y[0])+"<br>"+"World of Warcraft: "+str(y[1])+"<br>"+"Revelations: "+str(y[2])+"<br>"+"Blade And Soul: "+str(y[3])+"<br>"+"EVE Online: "+str(y[4])+"<br>"+"Lineage 2: "+str(y[5])+"<br>"+"Skyforge: "+str(y[6])+"<br>"+"Аллоды Онлайн: "+str(y[7])+"<br>"+"'Star Wars: Knights of the Old Republic': "+str(y[8])+"<br>"+"Tera: "+str(y[9])+"<br>"+"Termin: "+str(Dictionary.get(str(termin)))
-            start_response(status, response_headers)
-            yield response_body.encode()
+                start_response(status, response_headers)
+                yield response_body.encode()
+            else:
+                start_response(status, response_headers)
+                yield response_body.encode()
         except:
             response_body="Пожалуйста, введите корректные значения.<br>"
             start_response(status, response_headers)
