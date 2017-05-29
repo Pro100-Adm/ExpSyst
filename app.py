@@ -1,5 +1,6 @@
 from cgi import parse_qs
 from exp_syst_calc import *
+from exp_syst_dict import *
 html = """Введите значения в интервале от 0 до 1 в формате '0.1'.<br>
 <form method="get">Ты знаешь что такое mmorpg?<input name="Answer1"></input><br>
 <form method="get">Ты играл в The Elder Scrolls 5: Skyrim?<input name="Answer2"></input><br>
@@ -8,7 +9,8 @@ html = """Введите значения в интервале от 0 до 1 в
 <form method="get">Готов ли ты к единовременному платежу за игру?<input name="Answer5"></input><br>
 <form method="get">Готов ли ты проводить большую часть времени в игре за скучными занятиями?<input name="Answer6"></input><br>
 <form method="get">Нравится ли тебе "корейская стилистика?<input name="Answer7"></input><br>
-<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br><button>OK</button></form>"""
+<form method="get">Готов ли ты в любой момент потерять всё и начать сначала?<input name="Answer8"></input><br>
+<form method="get">Введи термин: <input name="word"></input></form><br><button>OK</button>"""
 def wsgi_app(environ, start_response): 
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
     response_body = html
